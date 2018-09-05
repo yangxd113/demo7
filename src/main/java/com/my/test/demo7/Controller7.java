@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/demo7")
 public class Controller7 {
-	@Autowired
-	Repository rr;
-	
+
 	@Autowired
 	LoginService uuu;
 	
@@ -24,26 +22,17 @@ public class Controller7 {
     	return "hello demo7()";
     }
     
-    @RequestMapping(value="/save",method=RequestMethod.POST)
+    @RequestMapping(value="/save",method=RequestMethod.POST)  
     public String save7(@RequestBody Login lll) {
     	uuu.save222(lll); 
     	return "save7() is ok!";
     }
-    @RequestMapping(value="/save2",method=RequestMethod.POST)
-    public String save8(@RequestBody Login lll) {
-        rr.save(lll);
-    	return "save8() is ok!";
-    }
+
 	
     @RequestMapping("/delete")
     public int delete7(@RequestParam int id) {
         uuu.delete222(id);
         return id;
    }
-    @RequestMapping(value="/delete2",method=RequestMethod.DELETE)
-    public String delete8(@RequestParam int id) {
-    	rr.delete(id);
-        return "delete方式提交:delete8() is ok!";
-   } 
     
 }
