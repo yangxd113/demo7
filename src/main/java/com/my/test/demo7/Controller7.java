@@ -1,5 +1,7 @@
 package com.my.test.demo7;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/demo7")
 public class Controller7 {
-	@Autowired
-	Repository rr;
-	
+
 	@Autowired
 	LoginService uuu;
 	
@@ -24,26 +24,22 @@ public class Controller7 {
     	return "hello demo7()";
     }
     
-    @RequestMapping(value="/save",method=RequestMethod.POST)
+    @RequestMapping("/find")
+    public List<Login> put222(){
+    	return uuu.put222();
+    }
+    
+    @RequestMapping(value="/save",method=RequestMethod.POST)  
     public String save7(@RequestBody Login lll) {
     	uuu.save222(lll); 
     	return "save7() is ok!";
     }
-    @RequestMapping(value="/save2",method=RequestMethod.POST)
-    public String save8(@RequestBody Login lll) {
-        rr.save(lll);
-    	return "save8() is ok!";
-    }
+
 	
     @RequestMapping("/delete")
     public int delete7(@RequestParam int id) {
         uuu.delete222(id);
         return id;
    }
-    @RequestMapping(value="/delete2",method=RequestMethod.DELETE)
-    public String delete8(@RequestParam int id) {
-    	rr.delete(id);
-        return "delete方式提交:delete8() is ok!";
-   } 
     
 }
