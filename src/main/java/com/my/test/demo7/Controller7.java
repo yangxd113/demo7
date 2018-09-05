@@ -24,12 +24,21 @@ public class Controller7 {
     	return "hello demo7()";
     }
     
+<<<<<<< .mine
     @RequestMapping("/find")
     public List<Login> put222(){
     	return uuu.put222();
     }
     
     @RequestMapping(value="/save",method=RequestMethod.POST)  
+=======
+    @RequestMapping(value="/save",method=RequestMethod.POST)  
+
+
+
+
+
+>>>>>>> .theirs
     public String save7(@RequestBody Login lll) {
     	uuu.save222(lll); 
     	return "save7() is ok!";
